@@ -3,12 +3,10 @@ package ia.nktn.yourplace.retrofit
 import ia.nktn.yourplace.data.auth.models.UserRegisterResponse
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface ApiService {
     @POST("api/v1/auth/register")
@@ -32,11 +30,6 @@ data class Token(
 sealed class Result<out T> {
     data class Success<out T>(val data: T) : Result<T>()
     data class Error(val message: String) : Result<Nothing>()
-
-    companion object {
-        fun <T> success(data: T): Result<T> = Success(data)
-        fun error(message: String): Result<Nothing> = Error(message)
-    }
 }
 
 suspend fun <T : Any> withExceptionHandling(block: suspend () -> Response<T>): Result<T> {

@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import ia.nktn.yourplace.MainActivity
 import ia.nktn.yourplace.PagerFragment
 import ia.nktn.yourplace.databinding.FragmentAuthBinding
-import ia.nktn.yourplace.retrofit.Token
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
