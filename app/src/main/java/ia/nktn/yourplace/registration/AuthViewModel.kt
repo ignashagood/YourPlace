@@ -1,0 +1,74 @@
+package ia.nktn.yourplace.registration
+
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import ia.nktn.yourplace.data.auth.AuthRepository
+import ia.nktn.yourplace.retrofit.Result
+import ia.nktn.yourplace.retrofit.Token
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    private val repository: AuthRepository
+) : ViewModel() {
+
+    private val _password = MutableStateFlow("")
+    val password: StateFlow<String> by ::_password
+
+    private val _checkPassword = MutableStateFlow("")
+    val checkPassword: StateFlow<String> by ::_checkPassword
+
+    private val _passwordError = MutableStateFlow<String?>(null)
+    val passwordError: StateFlow<String?> by ::_passwordError
+
+    private val _registerErrorMessage = MutableStateFlow("")
+    val registerErrorMessage: StateFlow<String> by ::_registerErrorMessage
+
+    private val _authToken = MutableStateFlow(Token("", ""))
+    val authToken: StateFlow<Token> by ::_authToken
+
+    fun onPasswordChanged(text: String) {
+        _password.value = text
+        checkFieldsEquality()
+    }
+
+    fun onCheckPasswordChanged(text: String) {
+        _checkPassword.value = text
+        checkFieldsEquality()
+    }
+
+    suspend fun registerUser(email: String, password: String) {
+        viewModelScope.launch {
+            repository.registerUser(email, password).collect { result ->
+                when (result) {
+                    is Result.Success -> loginUser(email, password)
+                    is Result.Error -> _registerErrorMessage.value = result.message
+                }
+            }
+        }
+    }
+
+    suspend fun loginUser(email: String, password: String) {
+        viewModelScope.launch {
+            repository.loginUser(email, password).collect {
+                when(it) {
+                    is Result.Success -> _authToken.value = it.data
+                    is Result.Error -> Log.e("TAG", it.message)
+                }
+            }
+        }
+    }
+
+    private fun checkFieldsEquality() {
+        if (_password.value != _checkPassword.value) {
+            _passwordError.value = "Пароли не совпадают"
+        } else {
+            _passwordError.value = null
+        }
+    }
+}

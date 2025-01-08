@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YourPlace</string>
+    <string name="guest_count_picker_dialog_title">Укажите количество гостей</string>
+    <string name="registration_title">Создать аккаунт</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="password_check">Повторите пароль</string>
+    <string name="register_button_check">Перейти к сервису</string>
+</resources>

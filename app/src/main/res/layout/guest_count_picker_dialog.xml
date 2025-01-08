@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/guestCountPickerDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/guest_count_picker_dialog_title"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/buttonTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/guestCountPickerDialogBtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/rounded_button_beige"
+        android:text="1"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/dialogTextSize"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/guestCountPickerDialogBtn2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guestCountPickerDialogTitle" />
+
+    <Button
+        android:id="@+id/guestCountPickerDialogBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button_beige"
+        android:text="2"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/dialogTextSize"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/guestCountPickerDialogBtn3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guestCountPickerDialogBtn1"
+        app:layout_constraintTop_toTopOf="@+id/guestCountPickerDialogBtn1" />
+
+    <Button
+        android:id="@+id/guestCountPickerDialogBtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button_beige"
+        android:text="3"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/dialogTextSize"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guestCountPickerDialogBtn2"
+        app:layout_constraintTop_toTopOf="@+id/guestCountPickerDialogBtn2" />
+
+    <Button
+        android:id="@+id/guestCountPickerDialogBtn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button_beige"
+        android:text="4"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/dialogTextSize"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/guestCountPickerDialogBtn5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guestCountPickerDialogBtn1" />
+
+    <Button
+        android:id="@+id/guestCountPickerDialogBtn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button_beige"
+        android:text="5"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/dialogTextSize"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/guestCountPickerDialogBtn6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guestCountPickerDialogBtn4"
+        app:layout_constraintTop_toTopOf="@+id/guestCountPickerDialogBtn4" />
+
+    <Button
+        android:id="@+id/guestCountPickerDialogBtn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button_beige"
+        android:text="6"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/dialogTextSize"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guestCountPickerDialogBtn5"
+        app:layout_constraintTop_toTopOf="@+id/guestCountPickerDialogBtn5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

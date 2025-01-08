@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="RoundedDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/guest_count_picker_dialog_background
+        </item> <!-- Фон с закругленными углами -->
+    </style>
+
+    <style name="CustomTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/box_color</item>
+        <item name="boxBackgroundColor">#00000000</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="hintTextAppearance">@style/CustomTextAppearance</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cursorColor">@color/white</item>
+    </style>
+
+    <style name="CustomTextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
+</resources>
