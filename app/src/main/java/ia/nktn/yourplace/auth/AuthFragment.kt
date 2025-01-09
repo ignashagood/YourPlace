@@ -106,7 +106,7 @@ class AuthFragment : Fragment() {
                     }
                 }
                 launch {
-                    viewModel.registerErrorMessage.collect {
+                    viewModel.authErrorMessage.collect {
                         if (it.isEmpty()) return@collect
                         if (it.substring(11, it.length - 2) == "REGISTER_USER_ALREADY_EXISTS") {
                             emailTextField.isErrorEnabled = true

@@ -1,6 +1,5 @@
 package ia.nktn.yourplace.auth
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -29,8 +28,8 @@ class AuthViewModel @Inject constructor(
     private val _passwordError = MutableStateFlow<String?>(null)
     val passwordError: StateFlow<String?> by ::_passwordError
 
-    private val _registerErrorMessage = MutableStateFlow("")
-    val registerErrorMessage: StateFlow<String> by ::_registerErrorMessage
+    private val _authErrorMessage = MutableStateFlow("")
+    val authErrorMessage: StateFlow<String> by ::_authErrorMessage
 
     private val _authToken = MutableStateFlow(Token("", ""))
     val authToken: StateFlow<Token> by ::_authToken
@@ -66,23 +65,23 @@ class AuthViewModel @Inject constructor(
         checkFieldsEquality()
     }
 
-    suspend fun registerUser(email: String, password: String) {
+    private suspend fun registerUser(email: String, password: String) {
         viewModelScope.launch {
             repository.registerUser(email, password).collect { result ->
                 when (result) {
                     is Result.Success -> loginUser(email, password)
-                    is Result.Error -> _registerErrorMessage.value = result.message
+                    is Result.Error -> _authErrorMessage.value = result.message
                 }
             }
         }
     }
 
-    suspend fun loginUser(email: String, password: String) {
+    private suspend fun loginUser(email: String, password: String) {
         viewModelScope.launch {
             repository.loginUser(email, password).collect {
                 when (it) {
                     is Result.Success -> _authToken.value = it.data
-                    is Result.Error -> Log.e("TAG", it.message)
+                    is Result.Error -> _authErrorMessage.value = it.message
                 }
             }
         }
