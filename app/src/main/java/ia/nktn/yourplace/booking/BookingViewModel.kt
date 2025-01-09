@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import javax.inject.Inject
+import ia.nktn.yourplace.retrofit.Result as Result
 
 @HiltViewModel
 class BookingViewModel @Inject constructor(
@@ -33,6 +34,9 @@ class BookingViewModel @Inject constructor(
 
     private val _selectedTableId = MutableStateFlow<Int?>(null)
     val selectedTableId: StateFlow<Int?> by ::_selectedTableId
+
+    private val _bookResult = MutableStateFlow<Result<Any>?>(null)
+    val bookResult: StateFlow<Result<Any>?> by ::_bookResult
 
     fun emitSelectedDate(date: Date) =
         viewModelScope.launch {
@@ -74,8 +78,8 @@ class BookingViewModel @Inject constructor(
         val formattedDate = formatter.format(combinedDate.toInstant())
         viewModelScope.launch {
             _selectedTableId.value?.let {
-                repository.book(_selectedGuestCount.value, formattedDate, it).collect {
-                    it
+                repository.book(_selectedGuestCount.value, formattedDate, it).collect { result ->
+                    _bookResult.value = result
                 }
             }
         }

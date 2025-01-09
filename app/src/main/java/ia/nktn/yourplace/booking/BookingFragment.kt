@@ -14,7 +14,7 @@ import ia.nktn.yourplace.R
 import ia.nktn.yourplace.createDate
 import ia.nktn.yourplace.createTime
 import ia.nktn.yourplace.databinding.BookingFragmentBinding
-import ia.nktn.yourplace.home.showCustomDialog
+import ia.nktn.yourplace.home.showGuestCountPickerDialog
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -74,7 +74,7 @@ class BookingFragment : Fragment() {
         }
 
         binding?.guestsValue?.setOnClickListener {
-            showCustomDialog(requireContext()) { dialog, count ->
+            showGuestCountPickerDialog(requireContext()) { dialog, count ->
                 viewModel.emitSelectedGuestCount(count)
                 dialog.dismiss()
             }
@@ -85,25 +85,27 @@ class BookingFragment : Fragment() {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.selectedDate.collect {
-                binding?.dateValue?.setText(it)
+            launch {
+                viewModel.selectedDate.collect {
+                    binding?.dateValue?.setText(it)
+                }
             }
-        }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.selectedTime.collect {
-                binding?.timeValue?.setText(it)
+            launch {
+                viewModel.selectedTime.collect {
+                    binding?.timeValue?.setText(it)
+                }
             }
-        }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.selectedGuestCount.collect {
-                binding?.guestsValue?.setText(
-                    when (it) {
-                        1, 5, 6 -> resources.getString(R.string.one_person, it)
-                        else -> resources.getString(R.string.many_person, it)
-                    }
-                )
+            launch {
+                viewModel.selectedGuestCount.collect {
+                    binding?.guestsValue?.setText(
+                        when (it) {
+                            1, 5, 6 -> resources.getString(R.string.one_person, it)
+                            else -> resources.getString(R.string.many_person, it)
+                        }
+                    )
+                }
             }
         }
     }

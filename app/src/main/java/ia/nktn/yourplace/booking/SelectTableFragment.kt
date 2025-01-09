@@ -1,6 +1,7 @@
 package ia.nktn.yourplace.booking
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import ia.nktn.yourplace.MainActivity
+import ia.nktn.yourplace.PagerFragment
 import ia.nktn.yourplace.R
 import ia.nktn.yourplace.databinding.SelectTableFragmentBinding
+import ia.nktn.yourplace.retrofit.Result
 import kotlinx.coroutines.launch
 
 class SelectTableFragment : Fragment() {
@@ -82,8 +86,23 @@ class SelectTableFragment : Fragment() {
             }
 
             viewLifecycleOwner.lifecycleScope.launch {
-                viewModel.selectedTableId.collect {
-                    bookButton.isEnabled = it != null
+                launch {
+                    viewModel.selectedTableId.collect {
+                        bookButton.isEnabled = it != null
+                    }
+                }
+                launch {
+                    viewModel.bookResult.collect {
+                        when (it) {
+                            is Result.Success ->
+                                showSuccessBookingDialog(requireContext(), "14 января", "14:30") {
+                                    (activity as? MainActivity)?.replaceFragment(PagerFragment())
+                                }
+
+                            is Result.Error -> Log.e("TAG", it.message)
+                            else -> Unit
+                        }
+                    }
                 }
             }
         }

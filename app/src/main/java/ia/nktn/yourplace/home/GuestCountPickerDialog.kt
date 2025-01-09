@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.widget.Button
 import ia.nktn.yourplace.R
 
-fun showCustomDialog(context: Context, onNumberSelected: (AlertDialog, Int) -> Unit) {
+fun showGuestCountPickerDialog(context: Context, onNumberSelected: (AlertDialog, Int) -> Unit) {
     val dialogView = LayoutInflater.from(context).inflate(R.layout.guest_count_picker_dialog, null)
 
-    val builder = AlertDialog.Builder(context, R.style.RoundedDialogStyle)
-        .setView(dialogView)
+    val builder = AlertDialog.Builder(context, R.style.RoundedDialogStyle).setView(dialogView)
 
     val btn1: Button = dialogView.findViewById(R.id.guestCountPickerDialogBtn1)
     val btn2: Button = dialogView.findViewById(R.id.guestCountPickerDialogBtn2)
