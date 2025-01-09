@@ -202,4 +202,14 @@
         android:textSize="18sp"
         app:backgroundTint="@null" />
 
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_marginTop="720dp"
+        android:textColor="@color/error"
+        android:textSize="24sp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+
 </FrameLayout>

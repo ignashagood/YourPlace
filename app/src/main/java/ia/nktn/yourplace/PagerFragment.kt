@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import ia.nktn.yourplace.databinding.PagerFragmentBinding
 
@@ -30,14 +31,17 @@ class PagerFragment : Fragment() {
                         pager.currentItem = 0
                         true
                     }
+
                     R.id.page_2 -> {
                         pager.currentItem = 1
                         true
                     }
+
                     R.id.page_3 -> {
                         pager.currentItem = 2
                         true
                     }
+
                     else -> false
                 }
             }

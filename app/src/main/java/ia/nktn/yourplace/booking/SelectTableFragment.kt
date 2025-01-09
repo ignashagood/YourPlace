@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -96,10 +97,13 @@ class SelectTableFragment : Fragment() {
                         when (it) {
                             is Result.Success ->
                                 showSuccessBookingDialog(requireContext(), "14 января", "14:30") {
-                                    (activity as? MainActivity)?.replaceFragment(PagerFragment())
+                                    (activity as? MainActivity)?.replaceFragment(PagerFragment(), false)
                                 }
 
-                            is Result.Error -> Log.e("TAG", it.message)
+                            is Result.Error -> {
+                                binding?.errorMessage?.isVisible = true
+                                binding?.errorMessage?.text = it.message
+                            }
                             else -> Unit
                         }
                     }

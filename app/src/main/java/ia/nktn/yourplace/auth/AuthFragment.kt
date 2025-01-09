@@ -1,5 +1,6 @@
 package ia.nktn.yourplace.auth
 
+import ExpiringSharedPreferences
 import android.content.Context
 import android.os.Bundle
 import android.text.SpannableString
@@ -21,6 +22,10 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AuthFragment : Fragment() {
+
+    companion object {
+        private const val TIMESTAMP_SUFFIX = "_timestamp"
+    }
 
     sealed class ViewMode {
         data object Login : ViewMode()
@@ -125,7 +130,7 @@ class AuthFragment : Fragment() {
                     viewModel.authToken.collect {
                         if (it.access_token.isNotEmpty()) {
                             saveToken(it.access_token)
-                            (activity as? MainActivity)?.replaceFragment(PagerFragment())
+                            (activity as? MainActivity)?.replaceFragment(PagerFragment(), false)
                         }
                     }
                 }
@@ -150,9 +155,7 @@ class AuthFragment : Fragment() {
     private fun saveToken(token: String) {
         val sharedPreferences =
             requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("auth_token", token)
-        editor.putBoolean("is_logged_in", true)
-        editor.apply()
+        val expiringSharedPreferences = ExpiringSharedPreferences(sharedPreferences)
+        expiringSharedPreferences.putString("auth_token", token)
     }
 }
