@@ -6,14 +6,10 @@
         android:title="Главная"/>
     <item
         android:id="@+id/page_2"
-        android:icon="@drawable/bookings"
-        android:title="Мои бронирования"/>
-    <item
-        android:id="@+id/page_3"
         android:icon="@drawable/contacts"
         android:title="Контакты"/>
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/page_3"
         android:icon="@drawable/profile"
         android:title="Профиль"/>
 </menu>

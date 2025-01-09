@@ -56,7 +56,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.54")
     kapt("com.google.dagger:hilt-compiler:2.54")
 
-    // Другие зависимости
     implementation("androidx.core:core-ktx:1.10.0")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

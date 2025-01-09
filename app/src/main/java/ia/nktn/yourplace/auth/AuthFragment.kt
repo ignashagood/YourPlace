@@ -27,8 +27,6 @@ class AuthFragment : Fragment() {
         data object Register : ViewMode()
     }
 
-    var viewMode = ViewMode.Login
-
     private val viewModel: AuthViewModel by viewModels()
 
     private var binding: AuthFragmentBinding? = null
@@ -109,11 +107,15 @@ class AuthFragment : Fragment() {
                 }
                 launch {
                     viewModel.registerErrorMessage.collect {
-                        if (it == "REGISTER_USER_ALREADY_EXISTS") {
+                        if (it.substring(11, it.length - 2) == "REGISTER_USER_ALREADY_EXISTS") {
                             emailTextField.isErrorEnabled = true
                             emailTextField.error = "Такой пользователь уже существует"
                         } else {
-                            errorMessage.text = it
+                            errorMessage.text =
+                                when (viewModel.viewMode.value) {
+                                    is ViewMode.Login -> "Ошибка авторизации. Проверьте email или пароль"
+                                    is ViewMode.Register -> "Ошибка регистрации. Попробуйте снова."
+                                }
                             errorMessage.isVisible = true
                         }
                     }

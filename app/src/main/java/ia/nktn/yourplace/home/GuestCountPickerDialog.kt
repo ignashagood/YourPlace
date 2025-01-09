@@ -7,14 +7,11 @@ import android.widget.Button
 import ia.nktn.yourplace.R
 
 fun showCustomDialog(context: Context, onNumberSelected: (AlertDialog, Int) -> Unit) {
-    // Создаем разметку для диалога
     val dialogView = LayoutInflater.from(context).inflate(R.layout.guest_count_picker_dialog, null)
 
-    // Создаем AlertDialog.Builder
     val builder = AlertDialog.Builder(context, R.style.RoundedDialogStyle)
-        .setView(dialogView)         // Устанавливаем кастомную разметку
+        .setView(dialogView)
 
-    // Ищем кнопки по ID
     val btn1: Button = dialogView.findViewById(R.id.guestCountPickerDialogBtn1)
     val btn2: Button = dialogView.findViewById(R.id.guestCountPickerDialogBtn2)
     val btn3: Button = dialogView.findViewById(R.id.guestCountPickerDialogBtn3)
@@ -24,9 +21,8 @@ fun showCustomDialog(context: Context, onNumberSelected: (AlertDialog, Int) -> U
 
     val dialog = builder.create()
 
-    // Устанавливаем обработчики для кнопок
     btn1.setOnClickListener {
-        onNumberSelected(dialog, 1)  // Передаем выбранное число
+        onNumberSelected(dialog, 1)
     }
     btn2.setOnClickListener {
         onNumberSelected(dialog, 2)
@@ -35,7 +31,7 @@ fun showCustomDialog(context: Context, onNumberSelected: (AlertDialog, Int) -> U
         onNumberSelected(dialog, 3)
     }
     btn4.setOnClickListener {
-        onNumberSelected(dialog, 4)  // Передаем выбранное число
+        onNumberSelected(dialog, 4)
     }
     btn5.setOnClickListener {
         onNumberSelected(dialog, 5)

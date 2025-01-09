@@ -17,15 +17,15 @@ fun formatTime(date: Date): String {
 
 fun createDate(year: Int, month: Int, day: Int): Date {
     val calendar = Calendar.getInstance()
-    calendar.set(year, month - 1, day)
+    calendar.set(year, month, day)
     return calendar.time
 }
 
 fun createTime(hour: Int, minute: Int): Date {
     val calendar = Calendar.getInstance()
-    calendar.set(Calendar.HOUR_OF_DAY, hour)  // Устанавливаем час
-    calendar.set(Calendar.MINUTE, minute)    // Устанавливаем минуты
-    calendar.set(Calendar.SECOND, 0)         // Устанавливаем секунды в 0
-    calendar.set(Calendar.MILLISECOND, 0)    // Устанавливаем миллисекунды в 0
+    calendar.set(Calendar.HOUR_OF_DAY, hour)
+    calendar.set(Calendar.MINUTE, minute)
+    calendar.set(Calendar.SECOND, 0)
+    calendar.set(Calendar.MILLISECOND, 0)
     return calendar.time
 }

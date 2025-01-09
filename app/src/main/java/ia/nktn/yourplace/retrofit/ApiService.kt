@@ -15,6 +15,10 @@ interface ApiService {
     @POST("api/v1/auth/login")
     @Headers("Content-Type: application/x-www-form-urlencoded")
     suspend fun loginUser(@Body body: RequestBody): Response<Token>
+
+    @POST("result")
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    suspend fun bookResult(@Body body: RequestBody): Response<Any>
 }
 
 data class UserRegister(
@@ -41,7 +45,7 @@ suspend fun <T : Any> withExceptionHandling(block: suspend () -> Response<T>): R
             Result.Success(response.body() as T)
         } else {
             val errorDetail = response.errorBody()?.string()
-            Result.Error(errorDetail?.substring(11, errorDetail.length - 2) ?: response.code().toString())
+            Result.Error(errorDetail ?: response.code().toString())
         }
     } catch (e: Exception) {
         Result.Error(e.toString())

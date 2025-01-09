@@ -3,4 +3,10 @@ plugins {
     id("com.android.application") version "8.2.1" apply false
     id("org.jetbrains.kotlin.android") version "1.9.22" apply false
     id("com.google.dagger.hilt.android") version "2.54" apply false
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
+}
+
+ktlint {
+    android.set(true)
+    outputColorName.set("RED")
 }

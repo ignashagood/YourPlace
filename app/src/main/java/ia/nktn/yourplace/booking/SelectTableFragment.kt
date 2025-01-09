@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -19,8 +18,6 @@ class SelectTableFragment : Fragment() {
 
     private var binding: SelectTableFragmentBinding? = null
 
-    private var selectedTableId: Int? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,30 +31,32 @@ class SelectTableFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.apply {
             val tables =
-                listOf(
-                    table1,
-                    table2,
-                    table3,
-                    table4,
-                    table5,
-                    table6,
-                    table7,
-                    table8,
-                    table9,
-                    table10,
-                    table11,
-                    table12,
-                    table13,
-                    table14,
-                    table15,
-                    table16
+                mapOf(
+                    table1 to 1,
+                    table2 to 2,
+                    table3 to 3,
+                    table4 to 4,
+                    table5 to 5,
+                    table6 to 6,
+                    table7 to 7,
+                    table8 to 8,
+                    table9 to 9,
+                    table10 to 10,
+                    table11 to 11,
+                    table12 to 12,
+                    table13 to 13,
+                    table14 to 14,
+                    table15 to 15,
+                    table16 to 16
                 )
             val context = requireContext()
-            tables.forEach { table ->
+            tables.keys.forEach { table ->
                 table.setOnClickListener {
                     val selectedTable =
                         viewModel.selectedTableId.value?.let { tableId ->
-                            this@SelectTableFragment.view?.findViewById<TextView>(tableId)
+                            tables.entries
+                                .find { it.value == tableId }
+                                ?.key
                         }
                     viewModel.emitSelectedTableId(
                         if (selectedTable == table) {
@@ -72,14 +71,14 @@ class SelectTableFragment : Fragment() {
                             table.setBackgroundColor(
                                 ContextCompat.getColor(context, R.color.brown_dark)
                             )
-                            table.id
+                            tables[table]
                         }
                     )
                 }
             }
 
             bookButton.setOnClickListener {
-
+                viewModel.bookTable()
             }
 
             viewLifecycleOwner.lifecycleScope.launch {
