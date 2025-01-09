@@ -1,15 +1,21 @@
-package ia.nktn.yourplace.home
+package ia.nktn.yourplace.booking
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import ia.nktn.yourplace.data.booking.BookingsRepository
 import ia.nktn.yourplace.formatDate
 import ia.nktn.yourplace.formatTime
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.Date
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class BookingViewModel @Inject constructor(
+    private val repository: BookingsRepository
+) : ViewModel() {
 
     private val _selectedDate = MutableStateFlow(formatDate(Date()))
     val selectedDate: StateFlow<String> by ::_selectedDate
@@ -19,6 +25,9 @@ class HomeViewModel : ViewModel() {
 
     private val _selectedGuestCount = MutableStateFlow(2)
     val selectedGuestCount: StateFlow<Int> by ::_selectedGuestCount
+
+    private val _selectedTableId = MutableStateFlow<Int?>(null)
+    val selectedTableId: StateFlow<Int?> by ::_selectedTableId
 
     fun emitSelectedDate(date: Date) =
         viewModelScope.launch {
@@ -34,4 +43,13 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             _selectedGuestCount.emit(count)
         }
+
+    fun emitSelectedTableId(id: Int?) =
+        viewModelScope.launch {
+            _selectedTableId.emit(id)
+        }
+
+    fun bookTable() {
+
+    }
 }

@@ -20,7 +20,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextField"
-        style="@style/CustomTextInputStyle"
+        style="@style/AuthTextInputStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -40,7 +40,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordTextField"
-        style="@style/CustomTextInputStyle"
+        style="@style/AuthTextInputStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -60,7 +60,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordCheckTextField"
-        style="@style/CustomTextInputStyle"
+        style="@style/AuthTextInputStyle"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -93,6 +93,7 @@
 
     <Button
         android:id="@+id/confirmButton"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -109,6 +110,11 @@
         android:id="@+id/support"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/grey"
+        android:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toStartOf="@id/changeMode"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmButton" />
 
@@ -116,7 +122,11 @@
         android:id="@+id/changeMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/confirmButton" />
+        app:layout_constraintStart_toEndOf="@id/support"
+        app:layout_constraintTop_toTopOf="@id/support" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

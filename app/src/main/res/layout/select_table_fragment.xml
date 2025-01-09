@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="639dp"
+        android:rotation="270"
+        android:scaleX="1.5"
+        android:scaleY="1.6"
+        android:src="@drawable/tables" />
+
+    <TextView
+        android:id="@+id/table1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="510dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="4"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="405dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="4"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table3"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="6"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table4"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="548dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="6"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table5"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="450dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="6"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="165dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="4"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table7"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="580dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="2"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table8"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="520dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="2"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table9"
+        android:layout_width="30dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="265dp"
+        android:layout_marginTop="410dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="2"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table10"
+        android:layout_width="30dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="265dp"
+        android:layout_marginTop="240dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="2"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table11"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="550dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="5"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table12"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="475dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="5"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table13"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="400dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="5"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table14"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="242dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="5"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table15"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="165dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="5"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <TextView
+        android:id="@+id/table16"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="82dp"
+        android:background="@color/brown_light"
+        android:gravity="center"
+        android:text="5"
+        android:textAppearance="@style/TableTextAppearance" />
+
+    <Button
+        android:id="@+id/bookButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="660dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/state_button_background"
+        android:fontFamily="@font/montserrat"
+        android:text="Забронировать"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:backgroundTint="@null" />
+
+</FrameLayout>

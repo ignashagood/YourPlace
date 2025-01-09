@@ -5,20 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ia.nktn.yourplace.databinding.FragmentContactsBinding
+import ia.nktn.yourplace.databinding.ContactsFragmentBinding
 
 class ContactsFragment : Fragment() {
 
-    private var binding: FragmentContactsBinding? = null
+    private var binding: ContactsFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View = FragmentContactsBinding.inflate(inflater, container, false).run {
+    ): View = ContactsFragmentBinding.inflate(inflater, container, false).run {
         binding = this
         root
     }
-
-
 }

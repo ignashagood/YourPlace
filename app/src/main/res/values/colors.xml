@@ -2,8 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="brown">#FF2C1107</color>
-    <color name="beige">#FFFFFDEA</color>
+    <color name="brown">#FF45332C</color>
+    <color name="brown_light">#71554B</color>
+    <color name="brown_dark">#332621</color>
+    <color name="beige">#FFFFFBF8</color>
     <color name="green">#FF15532D</color>
+    <color name="green_dark">#09351A</color>
     <color name="error">#FFD51717</color>
+    <color name="grey">#FFC3C3C3</color>
 </resources>

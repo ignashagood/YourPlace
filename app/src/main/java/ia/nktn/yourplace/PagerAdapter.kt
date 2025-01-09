@@ -14,8 +14,9 @@ class PagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> HomeFragment()
-            1 -> BookingsFragment()
+            1 -> MyBookingsFragment()
             2 -> ContactsFragment()
+            3 -> ProfileFragment()
             else -> error("Unexpected position $position")
         }
     }

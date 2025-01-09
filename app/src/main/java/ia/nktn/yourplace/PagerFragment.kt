@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ia.nktn.yourplace.databinding.FragmentPagerBinding
+import ia.nktn.yourplace.databinding.PagerFragmentBinding
 
 class PagerFragment : Fragment() {
 
-    private var binding: FragmentPagerBinding? = null
+    private var binding: PagerFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View = FragmentPagerBinding.inflate(inflater, container, false).run {
+    ): View = PagerFragmentBinding.inflate(inflater, container, false).run {
         binding = this
         pager.adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
         pager.isUserInputEnabled = false

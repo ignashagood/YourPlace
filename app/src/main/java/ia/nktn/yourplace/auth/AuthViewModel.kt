@@ -1,4 +1,4 @@
-package ia.nktn.yourplace.registration
+package ia.nktn.yourplace.auth
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -17,6 +17,9 @@ class AuthViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
 
+    private val _viewMode = MutableStateFlow<AuthFragment.ViewMode>(AuthFragment.ViewMode.Login)
+    val viewMode: StateFlow<AuthFragment.ViewMode> by ::_viewMode
+
     private val _password = MutableStateFlow("")
     val password: StateFlow<String> by ::_password
 
@@ -31,6 +34,27 @@ class AuthViewModel @Inject constructor(
 
     private val _authToken = MutableStateFlow(Token("", ""))
     val authToken: StateFlow<Token> by ::_authToken
+
+    fun changeViewMode() {
+        viewModelScope.launch {
+            _viewMode.value =
+                if (_viewMode.value is AuthFragment.ViewMode.Login) {
+                    AuthFragment.ViewMode.Register
+                } else {
+                    AuthFragment.ViewMode.Login
+                }
+        }
+    }
+
+    fun authenticateUser(email: String, password: String) {
+        viewModelScope.launch {
+            if (_viewMode.value is AuthFragment.ViewMode.Login) {
+                loginUser(email, password)
+            } else {
+                registerUser(email, password)
+            }
+        }
+    }
 
     fun onPasswordChanged(text: String) {
         _password.value = text
@@ -56,7 +80,7 @@ class AuthViewModel @Inject constructor(
     suspend fun loginUser(email: String, password: String) {
         viewModelScope.launch {
             repository.loginUser(email, password).collect {
-                when(it) {
+                when (it) {
                     is Result.Success -> _authToken.value = it.data
                     is Result.Error -> Log.e("TAG", it.message)
                 }

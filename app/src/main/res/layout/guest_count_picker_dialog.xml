@@ -11,7 +11,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/guest_count_picker_dialog_title"
-        android:textColor="@color/brown"
+        android:textColor="@color/black"
         android:textSize="@dimen/buttonTextSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +19,10 @@
 
     <Button
         android:id="@+id/guestCountPickerDialogBtn1"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button_beige"
         android:text="1"
         android:textColor="@color/brown"
@@ -34,7 +35,7 @@
 
     <Button
         android:id="@+id/guestCountPickerDialogBtn2"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button_beige"
         android:text="2"
@@ -48,7 +49,7 @@
 
     <Button
         android:id="@+id/guestCountPickerDialogBtn3"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button_beige"
@@ -63,7 +64,7 @@
 
     <Button
         android:id="@+id/guestCountPickerDialogBtn4"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -79,7 +80,7 @@
 
     <Button
         android:id="@+id/guestCountPickerDialogBtn5"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button_beige"
         android:text="5"
@@ -93,7 +94,7 @@
 
     <Button
         android:id="@+id/guestCountPickerDialogBtn6"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button_beige"
